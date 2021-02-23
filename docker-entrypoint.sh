@@ -25,6 +25,16 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 			echo "$result" > /var/www/html/user/config.php
 		fi
 
+		# Set default db name
+		: "${YOURLS_DB_NAME:="yourls"}"
+		# If YOURLS_DB_NAME doesn't start with sqlite/ we'll prepend it, in order to write into the sqlite-volume
+		if [[ $YOURLS_DB_NAME != "sqlite/"* ]]; then
+			YOURLS_DB_NAME="sqlite\/"$YOURLS_DB_NAME
+		fi
+
+		result=$(sed "s/define( 'YOURLS_DB_NAME', getenv_docker('YOURLS_DB_NAME', 'yourls') );/define( 'YOURLS_DB_NAME', \'$YOURLS_DB_NAME\' );/g" /var/www/html/user/config.php)
+		echo "$result" > /var/www/html/user/config.php
+
 		# We'd create the DB here if it doesn't exist "just to be safe" - For SQLite we can't do that.
 		#TERM=dumb php -- [[[SNIP]]]
 		# Source: https://github.com/YOURLS/docker-yourls/blob/cb2549780e6f062993c136d4da74b8463f269534/docker-entrypoint.sh
