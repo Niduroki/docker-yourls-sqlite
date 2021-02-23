@@ -1,0 +1,3 @@
+[submodule "yourls-sqlite"]
+	path = yourls-sqlite
+	url = https://github.com/Flameborn/yourls-sqlite.git
