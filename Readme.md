@@ -16,7 +16,7 @@ docker run --name yourls-but-sqlite \
     -e YOURLS_USER="myuser" \
     -e YOURLS_PASS="secretpassword" \
     -v yourls-sqlite:/var/www/html/user/sqlite \
-    -d niduroki/yourls-sqlite:1.8
+    -p 80:80 -d niduroki/yourls-sqlite:1.8
 ```
 
 ---
