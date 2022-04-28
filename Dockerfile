@@ -1,4 +1,4 @@
-FROM yourls:1.8-apache
+FROM yourls:1.9-apache
 
 COPY ./yourls-sqlite/db.php /var/www/html/user/db.php
 
