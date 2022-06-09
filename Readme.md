@@ -1,4 +1,4 @@
-# YOURLS 1.8 with SQLite
+# YOURLS 1.9 with SQLite
 
 Based on [Flameborn/yourls-sqlite](https://github.com/Flameborn/yourls-sqlite).
 
@@ -21,7 +21,7 @@ docker run --name yourls-but-sqlite \
     -e YOURLS_USER="myuser" \
     -e YOURLS_PASS="secretpassword" \
     -v yourls-sqlite:/var/www/html/user/sqlite \
-    -p 80:80 -d niduroki/yourls-sqlite:1.8
+    -p 80:80 -d niduroki/yourls-sqlite:1.9
 ```
 
 ---
