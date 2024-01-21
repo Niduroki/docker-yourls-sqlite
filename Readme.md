@@ -12,6 +12,16 @@ The `YOURLS_DB_NAME` **must** be defined, and **must** be prepended with a `sqli
 If you have updated this container, and your data seems to be lost: No worries, it's still there!  
 Prepend `sqlite/` to your existing `YOURLS_DB_NAME`, or, if you have not defined a custom `YOURLS_DB_NAME` define it as `YOURLS_DB_NAME=sqlite/yourls`.
 
+## Notes for installation
+
+The folder bound to this container must be owned by the user 33, otherwise it will not be able to write a SQLite db into it. This can be accomplished by doing a
+
+```
+chown -R 33:33 yourls-sqlite
+```
+
+on the folder.
+
 ## Example command-line
 
 ```
